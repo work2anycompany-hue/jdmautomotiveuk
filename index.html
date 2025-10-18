@@ -211,28 +211,25 @@
 <!-- Load the EmailJS SDK -->
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   (function() {
-    // Initialize EmailJS with your Public Key
-    emailjs.init("S1BHR8OnVXDWYCJyf"); // Replace with your actual EmailJS Public Key
+    emailjs.init("S1BHR8OnVXDWYCJyf");  // from Step 1
   })();
 
-  // Handle the form submission
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Send the form data using EmailJS
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
     emailjs.sendForm('service_0ecauan', 'template_fdny8nk', this)
-      .then(function(response) {
-        alert('✅ Your inquiry has been sent successfully!');
-        console.log('SUCCESS!', response.status, response.text);
-        document.getElementById('contact-form').reset(); // clear form after sending
-      }, function(error) {
-        alert('❌ Failed to send your message. Please try again later.');
-        console.log('FAILED...', error);
+      .then(() => {
+        alert('✅ Email sent successfully!');
+        this.reset();
+      }, (err) => {
+        alert('❌ Email failed to send.');
+        console.log(err);
       });
   });
 </script>
+
 
 </section>
 
@@ -242,6 +239,7 @@
 
 </body>
 </html>
+
 
 
 
