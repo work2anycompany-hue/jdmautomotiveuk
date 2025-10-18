@@ -197,7 +197,7 @@
         <strong>Phone:</strong> +44 7526 976008<br>
         <strong>Email:</strong> sales@jdmautomotive.uk
     </p>
-    <form id="contact-form" class="contact-form" id="contact-form">
+    <form id="contact-form" class="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -218,10 +218,9 @@
   document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    emailjs.sendForm('service_0ecauan', 'template_fdny8nk', , {
+    emailjs.sendForm('service_0ecauan', 'template_fdny8nk'),{
     name: document.getElementById('name').value,
     email: document.getElementById('email').value,
-    customer_count: document.getElementById('customer_count').value, // must match template
     message: document.getElementById('message').value
 })
 .then(function(response) {
@@ -239,6 +238,7 @@
 
 </body>
 </html>
+
 
 
 
